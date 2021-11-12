@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <title>Krzysztof Pepłoński formularz reklamacyjny</title>
+        <meta charset="utf-8" />
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100&display=swap" rel="stylesheet"> 
+    </head>
+
+    <body>
+        <h1>Dopisanie zgłoszenia reklamacyjnego</h1>
+        <form action="#" method="post">
+            <div id="reklamujacy">
+                <h2>Reklamujący</h2>
+                <label id="radio">
+                    <input type="radio" class="plec" name="plec"/>Pani
+                    <input type="radio" class="plec" name="plec"/>Pan
+                </label>
+
+                <label for="imie">
+                    <span>Imię</span>
+                    <input type="text" id="imie" name="imie"/>
+                </label>
+
+                <label for="nazwisko">
+                    <span>Nazwisko</span>
+                    <input type="text" id="nazwisko" name="nazwisko"/>
+                </label>
+
+                <label for="ulica">
+                    <span>Ulica</span>
+                    <input type="text" id="ulica" name="ulica"/>
+                </label>
+
+                <label for="kod_pocztowy">
+                    <span>Kod pocztowy</span>
+                    <input type="text" id="kod_pocztowy" name="kod_pocztowy"/>
+                </label>
+
+                <label for="miejscowosc">
+                    <span>Miejscowość</span>
+                    <input type="text" id="miejscowosc" name="miejscowosc"/>
+                </label>
+
+                <label for="nr_telefonu">
+                    <span>Nr telefonu</span>
+                    <input type="text" id="nr_telefonu" name="nr_telefonu"/>
+                </label>
+
+                <label for="adres_email">
+                    <span>Adres email</span>
+                    <input type="text" id="adres_email" name="adres_email"/>
+                </label>
+
+                <label class="checkbox">
+                    <span>Sposób powiadomienia</span>
+                    <input type="checkbox" name="telefon_sms"/>Telefon/SMS
+                    <span></span>
+                    <input type="checkbox" name="email"/>e-mail
+                </label>
+            </div>
+
+            <div id="reklamowanyprodukt">
+                <h2>Reklamowany produkt</h2>
+
+                <label for="asortyment">
+                    <span>Asortyment</span>
+                    <select id="asortyment" name="asortyment">
+                        <option></option>
+                        <option>Komputer PC</option>
+                        <option>ekran</option>
+                        <option>Laptop</option>
+                        <option>Telewizor</option>
+                        <option>odtwarzacz CD</option>
+                        <option>odtwarzacz DVD</option>
+                        <option>odtwarzacz VHS</option>
+                    </select>
+                </label>
+
+                <label for="numer_seryjny">
+                    <span>Numer seryjny</span>
+                    <input type="text" id="numer_seryjny" name="numer_seryjny"/>
+                </label>
+
+                <label for="uwagi">
+                    <span>Uwagi</span>
+                    <input type="text" id="uwagi" name="uwagi"/>
+                </label>
+            </div>
+
+            <div id="danezgloszenia">
+                <h2>Dane zgłoszenia</h2>
+
+                <label for="numer_dokumentu_zakupu">
+                    <span>Numer dokumentu zakupu</span>
+                    <input type="text" id="numer_dokumentu_zakupu" name="numer_dokumentu_zakupu"/>
+                </label>
+
+                <label for="data_zakupu">
+                    <span>Data zakupu</span>
+                    <input type="date" id="data_zakupu" name="data_zakupu"/>
+                </label>
+
+                <label for="data_powstania_wady">
+                    <span>Data powstania wady</span>
+                    <input type="date" id="data_powstania_wady" name="data_powstania_wady"/>
+                </label>
+
+                <label for="przyczyna_reklamacji">
+                    <span>Przyczyna rekalamcji</span>
+                    <input type="text" id="przyczyna_reklamacji" name="przyczyna_reklamacji"/>
+                </label>
+
+                <label for="opis_wady">
+                    <span>Opis wady</span>
+                    <textarea id="uwagi" name="uwagi" rows="10" cols="50">
+                    </textarea>
+                </label>
+
+                <label for="zadanie_reklamujacego">
+                    <span>Żądanie reklamującego</span>
+                    <select id="zadanie_reklamujacego" name="zadanie_reklamujacego">
+                        <option></option>
+                        <option>Naprawa</option>
+                        <option>Wymiana</option>
+                        <option>Zwrot kosztów</option>
+                    </select>
+                </label>
+            </div>
+        </form>
+    </body>
+</html>

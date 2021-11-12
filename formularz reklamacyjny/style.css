@@ -1,0 +1,102 @@
+body
+{
+    background-color: rgb(245,245,245);
+}
+
+h1, h2
+{
+    font-family: 'Alegreya Sans';
+}
+
+h1
+{
+    text-align: center;
+}
+
+h2
+{
+    padding: 0 20px;
+    text-align: left;
+    color:rgb(200,191,231);
+}
+
+label, div
+{
+    font-family: Arial;
+    display: block;
+    margin: 5px 0px;
+}
+
+label span
+{
+    display: inline-block;
+    text-align: left;
+    width: 250px;
+}
+
+div#reklamujacy
+{
+    margin: 4vh 5vw;
+    border-left: 4px solid rgb(0,106,0);
+    background-color: rgb(255,255,255);
+    box-shadow: 2px 5px 15px 3px rgb(203,203,203);
+}
+
+div#reklamowanyprodukt
+{
+    margin: 4vh 5vw;
+    border-left: 4px solid rgb(128,128,128);
+    background-color: rgb(255,255,255);
+    box-shadow: 2px 5px 15px 3px rgb(203,203,203);
+}
+div#danezgloszenia
+{
+    margin: 4vh 5vw;
+    border-left: 4px solid rgb(0,97,255);
+    background-color: rgb(255,255,255);
+    box-shadow: 2px 5px 15px 3px rgb(203,203,203);
+}
+
+div label
+{
+    margin:3px;
+    padding: 5px 26vw;
+}
+
+input
+{
+    border-radius: 6px;
+    border: solid 2px rgb(196,210,229);
+    width:250px;
+}
+
+input#kod_pocztowy
+{
+    border-radius: 6px;
+    border: solid 2px rgb(196,210,229);
+    width:100px;
+}
+
+textarea
+{
+    border-radius: 6px;
+    border: solid 2px rgb(196,210,229);
+    
+}
+
+select
+{
+    border-radius: 6px;
+    border: solid 2px rgb(196,210,229);   
+}
+
+label#radio input
+{
+    width:50px;
+}
+
+label.checkbox input
+{
+    display: inline-block;
+    width:  50px;
+}
