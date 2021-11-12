@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <title>Krzysztof Pepłoński formularzRejestracyjny</title>
+        <meta charset="utf-8" />
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <p>W celu uzyskania uprawnień należy:</p>
+
+        <ol>
+            <li>Wypełnić poniższy formularz</li>
+            <li>Wydrukować kopię wypełnionego formularza</li>
+            <li>Przesłać wydrukowany formularz pocztą</li>
+        </ol>
+
+        <h3>Dane identyfikacyjne</h3>
+    <form action="#" method="post">
+            <hr/>
+            <div>
+                <label for="firma">
+                    <span>Firma:</span>
+                    <input type="text" id="firma" name="firma"/>
+                </label>
+            </div>
+            <div>
+                <label for="ulica">
+                    <span>Ulica:</span>
+                    <input type="text" id="ulica" name="ulica"/>
+                </label>
+            </div>
+            <div>
+                <label for="miejscowosc">
+                    <span>Miejscowość:</span>
+                    <input type="text" id="miejscowosc" name="miejscowosc"/>
+                </label>
+            </div>
+            <div>
+                <label for="kod_pocztowy">
+                    <span>Kod pocztowy:</span>
+                    <input type="text" id="kod_pocztowy" name="kod_pocztowy"/>
+                </label>
+            </div>
+            <div>
+                <label for="nip">
+                    <span>NIP:</span>
+                    <input type="text" id="nip" name="nip"/>
+                </label>
+            </div>
+            <div>
+                <label for="www">
+                    <span>WWW:</span>
+                    <input type="text" id="www" name="www"/>
+                 </label>
+            </div>
+
+
+        <h3>Osoba kontaktowa</h3>
+
+            <hr/>
+            <div>
+                <label for="imie">
+                    <span>Imię:</span>
+                    <input type="text" id="imie" name="imie"/>
+                </label>
+            </div>
+            <div>
+               <label for="nazwisko">
+                    <span>Nazwisko:</span>
+                    <input type="text" id="nazwisko" name="nazwisko"/>
+                </label>
+            </div>
+            <div>
+                <label for="telefon">
+                    <span>Telefon:</span>
+                    <input type="text" id="telefon" name="telefon"/>
+                </label>
+            </div>
+            <div>
+                <label for="kraj">
+                <span>Kraj:</span>
+                <select id="kraj" name="kraj">
+                    <option>wybierz</option>
+                    <option>Polska</option>
+                    <option>Niemcy</option>
+                    <option>Rosja</option>
+                    <option>Litwa</option>
+                    <option>Białoruś</option>
+                    <option>Ukraina</option>
+                    <option>Czechy</option>
+                    <option>Słowacja</option>
+                </select>
+                </label>
+            </div>
+            <div>
+                <label for="faks">
+                    <span>Faks:</span>
+                    <input type="text" id="faks" name="faks"/>
+                </label>
+            </div>
+            <div>
+                <label for="email">
+                    <span>Email:</span>
+                    <input type="text" id="email" name="email"/>
+                </label>
+            </div>
+
+
+        <h3>Informacje dodatkowe</h3>
+        
+            <hr/>
+            <table>
+             <tr>
+                 <td rowspan="2">
+                     <div>Zakupy:</div>
+                 </td>
+                 <td>
+                    <input type="radio" name="zakupy"/>detaliczne
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="zakupy"/>hurtowe
+                </td>
+            </tr>  
+
+            <tr>
+                <td rowspan="6">
+                    <div>Prowadzę:</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="prowadze"/>hurtownię
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="prowadze"/>salon
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="prowadze"/>sklep
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="prowadze"/>punkt z akcesoriami GSM
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="tekst">
+                        <input type="checkbox" name="prowadze"/>
+                        <span>inny</span>
+                        <input type="text" id="tekst" name="tekst"/>
+                    </label>
+                </td>
+            </tr>   
+            </table>
+
+
+        <h3>Moja głowna branża to</h3>
+
+            <hr/>
+            <input type="radio" name="branza"/>GSM<br/>
+            <input type="radio" name="branza"/>RTV<br/>
+            <input type="radio" name="branza"/>komputerowa<br/>
+            <label for="inna_branza">
+                <input type="radio" name="branza"/>
+                <span>inna</span>
+                <input type="text" id="inna_branza" name="inna_branza"/>
+            </label>           
+
+
+        <h3>Dane konfiguracyjne</h3>
+
+            <hr/>
+            <div>
+                <label for="login">
+                <span>Login:</span>
+                <input type="password" id="login" name="login"/>
+                </label>
+            </div>
+            <div>
+                <label for="haslo">
+                    <span>Hasło:</span>
+                    <input type="password" id="haslo" name="haslo"/>
+                </label>
+            </div>
+            <div>
+                <label for="powtorz_haslo">
+                    <span>Powtórz hasło:</span>
+                    <input type="password" id="powtorz_haslo" name="powtorz_haslo"/>
+                </label>
+            </div>
+            <p><input type="checkbox" name="zgoda"/>Wyrażam zgodę na przetwarzanie danych osobowych...</p>
+            
+            <p>Regulamin do pobrania jest <a href="https://furtastic.pl/image/catalog/grafiki/regulamin.png">tutaj</a>.
+            </p>
+
+            <input id="wyslij" type="submit" value="Wyślij dane" />
+            <input id="wyczysc" type="reset" value="Wyczyść dane" />
+    </form>
+    </body>
+</html>
