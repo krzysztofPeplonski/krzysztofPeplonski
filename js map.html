@@ -1,0 +1,19 @@
+<meta charset="utf-8" />
+<script type="text/javascript">
+
+    let mapaLiczb = new Map();
+    mapaLiczb.set("1", "jeden");
+    mapaLiczb.set("2", "dwa");
+    mapaLiczb.set("3", "trzy");
+    mapaLiczb.set("4", "cztery");
+    mapaLiczb.set("5", "pięć");
+
+
+    let liczba = prompt("podaj liczbę:");
+    
+    for (let i = 0; i < liczba.length; i = i + 1) {
+        console.log(mapaLiczb.get(liczba[i]));
+    }
+
+
+</script>

@@ -1,0 +1,49 @@
+<meta charset="utf-8" />
+<script type="text/javascript">
+
+
+
+    while (true) {
+        var gra = prompt("Grasz? [t]-tak  [n]-nie");
+        var los = Math.floor((Math.random() * 100) + 1);
+        var zlicz = 5;
+
+        if (gra == "t") {
+            while (true) {
+                var l = parseInt(prompt(`Podaj liczbę 1-100 ( pozostało ${zlicz} szans):`));
+
+                zlicz = zlicz - 1;
+
+                if (l < los) {
+                    console.log(`${l} za mało!`);
+                }
+                else if (l > los) {
+                    console.log(`${l} za dużo!`);
+                }
+                else if (l == los) {
+                    console.log(`git! poszukiwana liczba to ${los}`);
+                    zlicz = 5;
+                    break;
+                }
+
+                if (zlicz == 0) {
+                    console.log("przegrana!");
+                    zlicz = 5;
+                    break;
+                }
+            }
+        }
+        else if (gra == "n") {
+            console.log("koniec gry!");
+            break;
+        }
+
+        else {
+            continue;
+        }
+    }
+
+
+
+
+</script>

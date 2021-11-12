@@ -1,0 +1,63 @@
+<meta charset="utf-8" />
+<script type="text/javascript">
+
+    var zlicz = 1;
+    var odpDobre = 0;
+    var odpZle = 0;
+
+    while (true) {
+
+
+
+        var losZadanie = Math.floor((Math.random() * 3) + 1);
+
+        switch (losZadanie) {
+            case 1:
+                losZadanie = "*";
+                break;
+
+            case 2:
+                losZadanie = "+";
+                break;
+
+            case 3:
+                losZadanie = "-";
+                break;
+        }
+
+        var a = Math.floor((Math.random() * 10) + 1);
+        var b = Math.floor((Math.random() * 10) + 1);
+        var wynik = (eval(`${a} ${losZadanie} ${b}`));
+
+        while (true) {
+
+            var odpowiedz = parseInt(prompt(`Jaki jest wynik działania ${a}${losZadanie}${b}=?`));
+
+            if (odpowiedz == wynik) {
+                zlicz = zlicz + 1;
+                odpDobre = odpDobre + 1;
+                console.log("Dobra odpowiedź. Losuję nowe pytanie.");
+                break;
+            }
+
+            else if (odpowiedz !== wynik) {
+                odpZle = odpZle + 1;
+                console.log("Odpowiedz jeszcze raz!");
+                continue;
+            }
+
+            else{
+                continue;
+            }
+        }
+
+
+        if (zlicz == 11) {
+            console.log("Koniec pytań.");
+            console.log(`Statystyka: Dobre odpowiedzi = ${odpDobre}, Złe odpowiedzi = ${odpZle}`);
+            break;
+        }
+
+    }
+
+</script>

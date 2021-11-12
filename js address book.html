@@ -1,0 +1,116 @@
+<meta charset="utf-8" />
+<script>
+
+
+    let kontakty = new Array ();
+
+    while (true) {
+
+        let menu = prompt("D-dodaj, P-pokaz, U-usun, Z-zmien, K-koniec").toUpperCase();
+
+        if (menu == "D") {
+            //pytanie:imie, nazwisko, telefon, email
+
+            let imie = prompt("Podaj imię:");
+            let nazwisko = prompt("Podaj nazwisko:");
+            let telefon = prompt("Podaj telefon:");
+            let email = prompt("Podaj email:");
+
+            let rekord = [imie, nazwisko, telefon, email];
+            kontakty.push(rekord);
+            console.log("Pomyślnie dodano nowy kontakt");
+        }
+
+        else if (menu == "P") {
+            // imię: ... Nazwisko: ... Telefon: ... Email: ...
+
+            for (let x of kontakty) {
+                console.log(`Imię: ${x[0]}, Nazwisko: ${x[1]}, Telefon: ${x[2]}, Email: ${x[3]}`);
+            }
+
+
+        }
+
+        else if (menu == "U") {
+            // pytanie: nazwisko, jest kluczem
+
+            let usuwanie = prompt("Podaj nazwisko do usunięcia:");
+            let znaleziono = false;
+            for (let x in kontakty) {
+
+                if (kontakty[x][1] == usuwanie) {
+                    znaleziono = true;
+                    kontakty.splice(x, 1);
+                    console.log(`Kontakt ${usuwanie} został usunięty.`);
+                    break;
+                }
+
+            }
+            if (znaleziono == false) {
+                console.log("Nie znaleziono kontaktu");
+            }
+        }
+
+        else if (menu == "Z") {
+            //pytanie: nazwisko, noweImie, noweNazwisko, nowyTelefon, nowyEmail
+
+            let doZmiany = prompt("Podaj nazwisko do zmiany:");
+            let znaleziono = false;
+
+            for (let x in kontakty) {
+
+                if (kontakty[x][1] == doZmiany) {
+
+                    znaleziono = true;
+
+                    let noweImie = prompt(`Stary: ${kontakty[x][0]}. Podaj nowe imię:`);
+
+                    if (noweImie != kontakty[x][0]) {
+                        kontakty[x][0] = noweImie;
+                    }
+
+                    let noweNazwisko = prompt(`Stary: ${kontakty[x][1]}. Podaj nowe nazwisko:`);
+
+                    if (noweNazwisko != kontakty[x][1]) {
+                        kontakty[x][1] = noweNazwisko;
+                    }
+
+                    let nowyTelefon = prompt(`Stary: ${kontakty[x][2]}. Podaj nowy telefon:`);
+
+                    if (nowyTelefon != kontakty[x][2]) {
+                        kontakty[x][2] = nowyTelefon;
+                    }
+
+                    let nowyEmail = prompt(`Stary: ${kontakty[x][3]}. Podaj nowy email:`);
+
+                    if (nowyEmail != kontakty[x][3]) {
+                        kontakty[x][3] = nowyEmail;
+                    }
+
+
+
+                    console.log(`Kontakt ${doZmiany} został zmieniony.`);
+                    break;
+                }
+
+            }
+            if (znaleziono == false) {
+                console.log("Nie znaleziono kontaktu");
+            }
+
+        }
+
+        else if (menu == "K") {
+            console.log("Koniec programu");
+            break;
+        }
+
+        else {
+            console.log("Nierozpoznana opcja menu");
+        }
+    }
+
+
+
+
+</script>
