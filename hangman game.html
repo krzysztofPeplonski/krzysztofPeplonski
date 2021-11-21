@@ -1,0 +1,85 @@
+<meta charset="utf-8" />
+<script>
+
+    // wprowadzenie danych
+
+    let haslo = prompt("podaj hasło:");
+    let tabHaslo = new Array();
+    let tabGwiazdki = new Array();
+    let zbiorLiter = new Set();
+    let szanse = 5;
+    let litera = "";
+    let hasloLitera = "";
+    let caleHaslo = "";
+
+
+    for (let x of haslo) {
+        tabHaslo.push(x);
+        tabGwiazdki.push("*");
+        zbiorLiter.add(x);
+
+    }
+
+    // gra
+
+    while (true) {
+
+        console.log("tabGwiazdki", tabGwiazdki);
+
+        if (zbiorLiter.size == 0) {
+            console.log(`Wygrana! Hasło to: ${haslo}`);
+            break;
+        }
+
+        if (szanse == 0) {
+            break;
+        }
+
+        //wybór: odgadywanie litery bądź deklaracja próby odgadnięcia całego hasła
+        hasloLitera = prompt(`Podaj [l]iterę, podaj całe [h]asło`);
+
+        // odgadywanie jednej litery. Sprawdzanie podanej litery ze zbiorem i wyświetlenie liter w *** lub utrata szansy
+        if (hasloLitera == "l") {
+            litera = prompt("podaj literę:");
+
+            if (zbiorLiter.has(litera) == false) {
+
+                szanse = szanse - 1;
+                console.log(`pozostało ${szanse} szans`);
+            }
+            else {
+                for (let x of tabHaslo) {
+                    if (x == litera) {
+                    }
+
+                }
+                for (let x in tabHaslo) {
+                    if (tabHaslo[x] == litera) {
+                        tabGwiazdki.splice(x, 1, litera);
+                        zbiorLiter.delete(litera);
+                    }
+                }
+            }
+        }
+
+        //odgadywanie całego hasła
+
+        else if (hasloLitera == "h") {
+
+            caleHaslo = prompt("podaj całe hasło:");
+            if (caleHaslo == haslo) {
+                console.log(`Wygrana! Hasło to: ${haslo}`);
+                break;
+            }
+            else {
+                szanse = szanse - 1;
+                console.log(`Złe hasło. Pozostało ${szanse} szans`);
+            }
+        }
+        else {
+            continue;
+        }
+    }
+
+
+</script>

@@ -1,0 +1,52 @@
+<meta charset="utf-8" />
+<script type="text/javascript">
+
+    let sklep = new Map();
+    sklep.set("Chleb", 2.50);
+    sklep.set("Sok", 1.50);
+    sklep.set("Woda", 3.80);
+    let produkt = "";
+    let doZapłaty = 0;
+
+    let koszyk = new Array();
+
+    while (true) {
+
+        let menu = prompt("D-dodaj do koszyka, P-podgląd koszyka, K-kasa/koniec.").toUpperCase();
+
+        if (menu == "D") {
+
+            //pytania:produkty
+            produkt = prompt("Wybierz produkt. Lista produktów: Chleb, Sok, Woda.");
+
+            if (sklep.has(produkt) == false) {
+                console.log("Nie ma takiego produktu!") //jeżeli produktu nie będzie w sklepie to nie dodajemy go do koszyka
+            }
+
+            else {
+                koszyk.push(produkt);
+                console.log(`Produkt: ${produkt} dodano do koszyka.`);
+
+                sklep.get(produkt);
+                doZapłaty = doZapłaty + sklep.get(produkt);
+            }
+        }
+
+        else if (menu == "P") {
+            for (let x of koszyk) {
+                console.log(x);
+            }
+        }
+
+        else if (menu == "K") {
+
+            console.log("Paragon");
+            for (let x of koszyk) {
+                console.log(`Produkt: ${x}   Cena:${sklep.get(x)}`)
+            }
+            console.log(`Razem do zapłaty ${doZapłaty} PLN.`);
+
+            break;
+        }
+    }
+</script>

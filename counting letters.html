@@ -1,0 +1,23 @@
+<meta charset="utf-8" />
+<script>
+
+    let zdanie = "";
+    let mapZdanie = new Map();
+
+    zdanie = prompt("Podaj dowolne zdanie:");
+
+    for (let x of zdanie) {
+
+        if (mapZdanie.has(x) == false) {
+            mapZdanie.set(x, 1);
+        }
+        else {
+            mapZdanie.set(x, mapZdanie.get(x) + 1);
+        }
+
+    }
+
+    for (let x of mapZdanie.keys()) {
+        console.log(`Litera ${x} występuje ${mapZdanie.get(x)} razy`);
+    }
+</script>
