@@ -1,0 +1,119 @@
+<meta charset="utf-8" />
+<script>
+
+    class Kontakt {
+        constructor(imie, nazwisko, email, telefon) {
+            this.imie = imie;
+            this.nazwisko = nazwisko;
+            this.email = email;
+            this.telefon = telefon;
+        }
+
+
+    }
+
+    let listaKontaktow = [];
+    while (true) {
+
+        let menu = prompt("1-dodaj, 2-pokaż, 3-usuń, 4-zmień, 5-koniec");
+
+        if (menu == "1") {
+            let imie = prompt("Podaj imię nowego kontaktu:");
+            let nazwisko = prompt("Podaj nazwisko nowego kontaktu:");
+            let email = prompt("Podaj email nowego kontaktu:");
+            let telefon = prompt("Podaj telefon nowego kontaktu:");
+
+            let kontakt = new Kontakt(imie, nazwisko, email, telefon);
+            listaKontaktow.push(kontakt);
+            console.log(`Kontakt ${imie} został pomyślnie dodany`);
+        }
+
+
+
+
+
+
+        else if (menu == "2") {
+            for (let x of listaKontaktow) {
+                console.log(`Imię: ${x.imie}, Nazwisko: ${x.nazwisko}, Email: ${x.email}, Telefon: ${x.telefon}.`);
+            }
+        }
+
+
+
+
+
+
+
+        else if (menu == "3") {
+            let usun = prompt("Podaj nazwisko kontaktu do usunięcia:");
+
+            let znaleziono = false;
+
+            for (let x in listaKontaktow) {
+                if (usun == listaKontaktow[x].nazwisko) {
+                    listaKontaktow.splice(x, 1);
+                    console.log(`Kontakt ${usun} został usunięty.`);
+                    znaleziono = true;
+                    break;
+                }
+            }
+            if (znaleziono == false) {
+                console.log("Nie znaleziono kontaktu");
+            }
+        }
+
+
+
+
+
+
+
+        else if (menu == "4") {
+            let nazwisko = prompt("Podaj nazwiko kontaktu do zmiany");
+
+            for (let x in listaKontaktow) {
+                if (nazwisko == listaKontaktow[x].nazwisko) {
+
+                    let noweImie = prompt("Podaj imię nowego kontaktu:");
+                    if (noweImie != "") {
+                        listaKontaktow[x].imie = noweImie;
+                    }
+
+                    let noweNazwisko = prompt("Podaj nazwisko nowego kontaktu:");
+                    if (noweNazwisko != "") {
+                        listaKontaktow[x].nazwisko = noweNazwisko;
+                    }
+
+                    let nowyEmail = prompt("Podaj email nowego kontaktu:");
+                    if (nowyEmail != "") {
+                        listaKontaktow[x].email = nowyEmail;
+                    }
+
+                    let nowyTelefon = prompt("Podaj telefon nowego kontaktu:");
+                    if (nowyTelefon != "") {
+                        listaKontaktow[x].telefon = nowyTelefon;
+                    }
+                }
+            }
+        }
+
+
+
+
+
+        else if (menu == "5") {
+            console.log("Koniec pracy");
+            break;
+        }
+
+
+
+
+
+        else {
+            console.log("nierozponana opcja menu");
+        }
+    }
+
+</script>

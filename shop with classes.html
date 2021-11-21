@@ -1,0 +1,108 @@
+<meta charset="utf-8" />
+<script>
+
+    let sklep = new Map();
+    sklep.set("sok", 2.50);
+    sklep.set("cola", 5.50);
+    sklep.set("woda", 1.50);
+
+    class Koszyk {
+        constructor() {
+            this.zakupy = new Map();
+        }
+
+        dodajProdukt(produkt, ilosc) {
+            if (this.zakupy.has(produkt)) {
+                let dotychczasowaIlosc = this.zakupy.get(produkt);
+                let nowaIlosc = dotychczasowaIlosc + ilosc;
+                this.zakupy.set(produkt, nowaIlosc);
+            }
+            else {
+                this.zakupy.set(produkt, ilosc);
+            }
+
+        }
+
+        usunProdukt(produkt, ilosc) {
+
+            let dotychczasowaIlosc = this.zakupy.get(produkt);
+
+            if (ilosc < dotychczasowaIlosc) {
+                let nowaIlosc = dotychczasowaIlosc - ilosc;
+                this.zakupy.set(produkt, nowaIlosc);
+            }
+            else if (ilosc == dotychczasowaIlosc) {
+                this.zakupy.delete(produkt);
+            }
+            else if (ilosc > dotychczasowaIlosc) {
+                console.log("Za dużo chcesz usunąć!");
+            }
+
+        }
+    }
+
+    koszyk = new Koszyk();
+
+    while (true) {
+
+        let menu = prompt("Witaj w sklepie !\nD-dodaj do koszyka, U-usun z koszyka, W-wyswtetl zawartosc koszyka, K-kasa/koniec").toUpperCase();
+
+
+        //Dodawanie do koszyka
+        if (menu == "D") {
+            let produkt = prompt("Wybierz produkt:");
+            if (sklep.has(produkt) == true) {
+                let ilosc = parseInt(prompt(`Podaj ilość ${produkt} jaką chcesz dodać do koszyka.`));
+                koszyk.dodajProdukt(produkt, ilosc);
+            }
+
+            else {
+                console.log("Nie ma takiego produktu!");
+            }
+        }
+
+
+
+        //Usuwanie z koszyka
+        else if (menu == "U") {
+            let produkt = prompt("Wybierz produkt:");
+            if (koszyk.zakupy.has(produkt) == true) {
+                let ilosc = parseInt(prompt("Podaj ilość"));
+                koszyk.usunProdukt(produkt, ilosc);
+            }
+            else {
+                console.log("Brak produktu w koszyku");
+            }
+        }
+
+
+
+
+        //Wyswietlanie zawartości koszyka
+        else if (menu == "W") {
+            for (let x of koszyk.zakupy.keys()) {
+                console.log(`Produkt: ${x}, Ilość: ${koszyk.zakupy.get(x)}`);
+            }
+        }
+
+
+
+
+
+        //Koniec pracy
+        else if (menu == "K") {
+            console.log("Paragon:");
+            let doZaplaty = 0;
+            for (let x of koszyk.zakupy.keys()) {
+                console.log(`Prosukt: ${x}, Ilość: ${koszyk.zakupy.get(x)}, Cena: ${sklep.get(x)}, Wartość: ${(koszyk.zakupy.get(x)) * (sklep.get(x))}`);
+
+                doZaplaty = doZaplaty + (koszyk.zakupy.get(x)) * (sklep.get(x));
+            }
+
+            console.log("Razem do zapłaty: " + doZaplaty + " PLN");
+            break;
+        }
+
+    }
+
+</script>

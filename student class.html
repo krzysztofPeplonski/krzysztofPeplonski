@@ -1,0 +1,165 @@
+<meta charset="utf-8" />
+<script>
+
+    class Student {
+        constructor(imie, nazwisko) {
+            this.imie = imie;
+            this.nazwisko = nazwisko;
+            this.oceny = [];
+
+        }
+
+        dodajOcene(nowaOcena) {
+            this.oceny.push(nowaOcena);
+        }
+
+        wypiszOceny() {
+            for (let i of this.oceny) {
+                console.log(i)
+            }
+        }
+
+        policzSrednia() {
+            let srednia = 0;
+            for (let x of this.oceny) {
+                srednia = srednia + x;
+            }
+            srednia = srednia / this.oceny.length;
+            console.log(srednia);
+        }
+    }
+
+
+
+    let listaStudentow = [];
+
+    while (true) {
+
+        let menu = prompt("D-dodaj studenta, P-pokaz studentów, U-usun studenta, " +
+            "O-dodaj ocenę studentowi, W-wypisz oceny studenta, S-srednia studenta, K-koniec").toUpperCase();
+
+
+
+        //DODAWANIE STUDENTA
+        if (menu == "D") {
+            let imie = prompt("Podaj imię nowego studneta:");
+            let nazwisko = prompt("Podaj nazwisko nowego studenta:");
+
+
+            let student = new Student(imie, nazwisko);
+            listaStudentow.push(student);
+            console.log(`Student ${imie} ${nazwisko} został pomyślnie dodany do listy studentów`);
+        }
+
+
+        //POKAZ STUDENTÓW
+        else if (menu == "P") {
+            for (let x of listaStudentow) {
+                if (x.oceny != "") {
+                    console.log(`Imię: ${x.imie}, Nazwisko: ${x.nazwisko}, Oceny:${x.oceny}`);
+                }
+                else {
+                    console.log(`Imię: ${x.imie}, Nazwisko: ${x.nazwisko}`);
+                }
+            }
+        }
+
+
+
+        //USUWANIE STUDENTA
+        else if (menu == "U") {
+            let usun = prompt("Podaj nazwisko studenta do usunięcia:");
+
+            let znaleziono = false;
+
+            for (let x in listaStudentow) {
+                if (usun == listaStudentow[x].nazwisko) {
+                    listaStudentow.splice(x, 1);
+                    console.log(`Studnet ${usun} został usunięty.`);
+                    znaleziono = true;
+                    break;
+                }
+            }
+            if (znaleziono == false) {
+                console.log("Nie znaleziono studenta");
+            }
+        }
+
+
+
+        //DODAWANIE OCENY STUDENTOWI
+        else if (menu == "O") {
+            let dodajOceneNazw = prompt("Podaj nazwisko studenta któremu dodać ocenę:");
+
+            let znaleziono = false;
+
+            for (let x in listaStudentow) {
+                if (dodajOceneNazw == listaStudentow[x].nazwisko) {
+                    znaleziono = true;
+
+                    let nowaOcena = parseInt(prompt("Wpisz nową ocenę studentowi:"));
+
+                    listaStudentow[x].dodajOcene(nowaOcena);
+
+                    console.log(`Studentowi ${listaStudentow[x].imie} ${listaStudentow[x].nazwisko} dodano ocenę: ${nowaOcena}.`);
+
+                    break;
+                }
+            }
+            if (znaleziono == false) {
+                console.log("Nie znaleziono studenta");
+            }
+        }
+
+
+
+        //WYŚWIETLANIE OCEN KONKRETNEGO STUDENTA
+        else if (menu == "W") {
+            let wyswietl = prompt("Podaj nazwisko studenta któremu chcesz wyświetlić oceny:");
+
+            let znaleziono = false;
+
+            for (let x in listaStudentow) {
+                if (wyswietl == listaStudentow[x].nazwisko) {
+                    listaStudentow[x].wypiszOceny();
+                    znaleziono = true;
+                    break;
+                }
+            }
+            if (znaleziono == false) {
+                console.log("Nie znaleziono studenta");
+            }
+        }
+
+
+
+        //ŚREDNIA
+        else if (menu == "S") {
+            let srednia = prompt("Podaj nazwisko studenta któremu chcesz wyliczyć średnią:");
+
+            let znaleziono = false;
+
+            for (let x in listaStudentow) {
+                if (srednia == listaStudentow[x].nazwisko) {
+                    listaStudentow[x].policzSrednia();
+                    znaleziono = true;
+                    break;
+                }
+            }
+            if (znaleziono == false) {
+                console.log("Nie znaleziono studenta");
+            }
+        }
+
+
+        //KONIEC PRACY
+        else if (menu == "K") {
+            console.log("Koniec pracy");
+            break;
+        }
+
+    }
+
+
+
+</script>

@@ -1,0 +1,153 @@
+<meta charset="utf-8" />
+<script>
+
+    class Pracownik {
+        constructor(imie, nazwisko, kontrakt, pensja) {
+            this.imie = imie;
+            this.nazwisko = nazwisko;
+            this.kontrakt = kontrakt;
+            this.pensja = pensja;
+        }
+    }
+
+
+
+    class PracownikController {
+        constructor() {
+            this.listaPracownikow = new Array();
+        }
+
+        szukaj(szukajPracownika) {
+
+            let znaleziono = false;
+
+            for (let x in this.listaPracownikow) {
+                if (szukajPracownika == this.listaPracownikow[x].nazwisko) {
+                    znaleziono = true;
+                    return x;
+                }
+
+            }
+
+            if (znaleziono == false) {
+                console.log("Nie znaleziono pracownikow");
+                return -1;
+            }
+        }
+
+
+
+        dodajPracownika(imie, nazwisko, kontrakt = "s", pensja = 1000) {
+            let pracownik = new Pracownik(imie, nazwisko, kontrakt, pensja);
+            this.listaPracownikow.push(pracownik);
+            console.log(`Pomyślnie dodano pracownika ${imie} ${nazwisko}.`);
+        }
+
+
+
+        pokazPracownikow() {
+            for (let x of this.listaPracownikow) {
+                console.log(`Imie: ${x.imie}, Nazwisko: ${x.nazwisko}, Kontrakt: ${x.kontrakt}, Pensja: ${x.pensja}.`);
+            }
+        }
+
+
+
+        usunPracownika(szukajPracownika) {
+            let x = this.szukaj(szukajPracownika);
+
+            if (x > -1) {
+                this.listaPracownikow.splice(x, 1);
+                console.log(`Pracownik ${szukajPracownika} został usunięty.`);
+            }
+        }
+
+
+
+        zmienKontrakt(szukajPracownika, zmienPensja) {
+
+            let x = this.szukaj(szukajPracownika);
+
+            if (x > -1) {
+                this.listaPracownikow[x].pensja = zmienPensja;
+                if (this.listaPracownikow[x].kontrakt == "s") {
+                    this.listaPracownikow[x].kontrakt = "e";
+                }
+                console.log(`Pracownikowi ${szukajPracownika} zmieniono kontrakt.`);
+            }
+        }
+
+
+    }
+
+
+
+
+    class Firma extends PracownikController {
+
+        constructor(nazwaFirmy) {
+            super();
+            this.nazwaFirmy = nazwaFirmy;
+            this.menu();
+        }
+
+        menu() {
+            while (true) {
+                let menu = prompt(`Witaj w firmie ${this.nazwaFirmy}.\n1- dodaj pracownika, 2- pokaz pracownikow, 3-usun pracownika, 4- zmien kontrakt, 5- koniec`);
+
+                if (menu == "1") {
+
+                    let imie = prompt("Podaj imie pracownika:");
+                    let nazwisko = prompt("Podaj nazwisko pracownika:");
+                    let kontrakt = prompt("Podaj kontrakt pracownika [s/e]");
+
+                    if (kontrakt == "e") {
+                        let pensja = parseInt(prompt("Podaj pensję:"));
+                        this.dodajPracownika(imie, nazwisko, kontrakt, pensje);
+                    }
+
+                    else if (kontrakt == "s") {
+                        this.dodajPracownika(imie, nazwisko);
+                    }
+
+                    else {
+                        console.log("Niepoprawny kontrakt");
+                    }
+                }
+
+
+
+                else if (menu == "2") {
+                    this.pokazPracownikow();
+                }
+
+
+
+                else if (menu == "3") {
+                    let szukajPracownika = prompt("Podaj nazwisko pracownika do usunięcia:");
+                    this.usunPracownika(szukajPracownika);
+
+                }
+
+
+
+                else if (menu == "4") {
+                    let szukajPracownika = prompt("Podaj nazwisko pracownika do zmiany:");
+                    let zmienPensja = parseInt(prompt("Podaj nową pensję:"));
+                    this.zmienKontrakt(szukajPracownika, zmienPensja);
+                    // prompt: nazwisko, pensja (kto miał staz to dostaje etat. kto miał etat to dostaje etat)
+                }
+
+
+
+                else if (menu == "5") {
+                    console.log("Koniec pracy");
+                    break;
+
+                }
+            }
+        }
+    }
+
+    let firma = new Firma("ABC");
+</script>
